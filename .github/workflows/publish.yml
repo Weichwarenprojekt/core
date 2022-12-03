@@ -1,0 +1,43 @@
+name: Publish Merged Packages
+
+inputs:
+  github_token:
+    description: Github token
+    required: true
+  npm_token:
+    description: NPM token
+    required: true
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  pre-merge:
+    runs-on: ubuntu-latest
+    if: (github.event.action == 'closed' && github.event.pull_request.merged == false)
+    steps:
+      - run: |
+          echo Before Merge check which packages have changed
+  post-merge:
+    runs-on: ubuntu-latest
+    if: (github.event.action == 'closed' && github.event.pull_request.merged == true)
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: yarn install --frozen-lockfile
+      - name: Version
+        env:
+          GITHUB_TOKEN: ${{ inputs.github_token }}
+          NODE_AUTH_TOKEN: ${{ inputs.npm_token }}
+        shell: bash
+        run: yarn nx affected --base=${{ github.event.pull_request.base.sha }} --target=version
+      # - run: |
+      #     git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only packages
