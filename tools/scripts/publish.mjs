@@ -7,10 +7,10 @@
  * You might need to authenticate with NPM before running this script.
  */
 
-import { readCachedProjectGraph } from 'nx/src/project-graph/project-graph';
 import { execSync } from 'child_process';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import chalk from 'chalk';
+import path from "node:path";
 
 function invariant(condition, message) {
   if (!condition) {
@@ -19,38 +19,23 @@ function invariant(condition, message) {
   }
 }
 
-// Executing publish script: node path/to/publish.mjs {name} --version {version} --tag {tag}
-// Default "tag" to "next" so we won't publish the "latest" tag by accident.
-const [, , name, version, tag = 'next'] = process.argv;
+// Executing publish script: node path/to/publish.mjs {name} --tag {tag}
+// Default "tag" to "next" so we won't publish the "latest" tag by accident. rinks: nah, do it!
+const [, ,name, , tag = 'latest'] = process.argv;
 
-// A simple SemVer validation to validate the version
-const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
-invariant(
-  version && validVersion.test(version),
-  `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${version}.`
-);
-
-const graph = readCachedProjectGraph();
-const project = graph.nodes[name];
-
-invariant(
-  project,
-  `Could not find project "${name}" in the workspace. Is the project.json configured correctly?`
-);
-
-const outputPath = project.data?.targets?.build?.options?.outputPath;
-invariant(
-  outputPath,
-  `Could not find "build.options.outputPath" of project "${name}". Is project.json configured  correctly?`
-);
-
-process.chdir(outputPath);
+console.error(process.cwd());
+process.chdir(path.join(process.cwd(), "dist/packages/", name))
 
 // Updating the version in "package.json" before publishing
 try {
   const json = JSON.parse(readFileSync(`package.json`).toString());
-  json.version = version;
-  writeFileSync(`package.json`, JSON.stringify(json, null, 2));
+
+  // A simple SemVer validation to validate the version
+  const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
+  invariant(
+    json.version && validVersion.test(json.version),
+    `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${json.version}.`
+  );
 } catch (e) {
   console.error(
     chalk.bold.red(`Error reading package.json file from library build output.`)
