@@ -1,5 +1,8 @@
 import { PrettierConfigModel } from "./PrettierConfigModel";
 
+/**
+ * Exports our default prettier configuration
+ */
 export const prettierConfig = {
     singleQuote: false,
     trailingComma: "all",
