@@ -23,10 +23,13 @@ jobs:
           node-version: '16'
       - run: yarn install --frozen-lockfile
       - name: Version
+        shell: bash
+        run: yarn nx affected --base=${{ github.event.pull_request.base.sha }} --target=version
+      - name: Publish
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-        shell: bash
-        run: yarn nx affected --base=${{ github.event.pull_request.base.sha }} --target=version
+        run: yarn nx affected --base=${{ github.event.pull_request.base.sha }} --target=publish
       # - run: |
       #     git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only packages

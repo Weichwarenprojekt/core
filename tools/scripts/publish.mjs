@@ -19,14 +19,10 @@ function invariant(condition, message) {
   }
 }
 
-// Executing publish script: node path/to/publish.mjs {name} --tag {tag}
-// Default "tag" to "next" so we won't publish the "latest" tag by accident. rinks: nah, do it!
-const [, ,name, , tag = 'latest'] = process.argv;
+const [, ,name] = process.argv;
 
-console.error(process.cwd());
 process.chdir(path.join(process.cwd(), "dist/packages/", name))
 
-// Updating the version in "package.json" before publishing
 try {
   const json = JSON.parse(readFileSync(`package.json`).toString());
 
@@ -43,4 +39,4 @@ try {
 }
 
 // Execute "npm publish" to publish
-execSync(`npm publish --access public --tag ${tag}`);
+execSync(`npm publish --access public`);
