@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@wp-core/config": ["packages/config/src/index.ts"]
+      "@wp-core/config": ["packages/config/src/index.ts"],
+      "@wp-core/test-publish-pipeline": [
+        "packages/test-publish-pipeline/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

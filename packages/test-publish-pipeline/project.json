@@ -1,0 +1,48 @@
+{
+  "name": "test-publish-pipeline",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/test-publish-pipeline/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/test-publish-pipeline",
+        "main": "packages/test-publish-pipeline/src/index.ts",
+        "tsConfig": "packages/test-publish-pipeline/tsconfig.lib.json",
+        "assets": ["packages/test-publish-pipeline/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/test-publish-pipeline/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/test-publish-pipeline/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs config",
+        "parallel": false
+      },
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}
