@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@wp-core/config": ["packages/config/src/index.ts"]
+      "@weichwarenprojekt/configuration": ["packages/configuration/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
