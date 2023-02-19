@@ -1,5 +1,10 @@
 {
   "name": "@weichwarenprojekt/configuration",
   "version": "0.1.0",
-  "type": "commonjs"
+  "type": "commonjs",
+  "author": {
+    "name": "Weichwarenprojekt",
+    "email": "info@weichwarenprojekt.de",
+    "url": "https://weichwarenprojekt.de"
+  }
 }
