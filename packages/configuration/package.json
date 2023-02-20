@@ -6,5 +6,12 @@
     "name": "Weichwarenprojekt",
     "email": "info@weichwarenprojekt.de",
     "url": "https://weichwarenprojekt.de"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Samuel Hübner",
+      "email": "samuel.huebner@weichwarenprojekt.de",
+      "url": "https://weichwarenprojekt.de"
+    }
+  ]
 }
