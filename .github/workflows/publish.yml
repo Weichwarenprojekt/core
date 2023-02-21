@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - name: Setup git user
         shell: bash
-        run: git config user.email "-" && git config user.name "Weichwarenbot 🚀"
+        run: git config user.email "bot@weichwarenprojekt.de" && git config user.name "Weichwarenbot 🚀"
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -26,9 +26,11 @@ jobs:
       - name: Version
         shell: bash
         run: yarn nx affected --base=${{ github.event.pull_request.base.sha }} --target=version
+        # push the changes
+      - run: git push --follow-tags
       - name: Publish
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
         run: npx nx affected --base=${{ github.event.pull_request.base.sha }} --target=publish
