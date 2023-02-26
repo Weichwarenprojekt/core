@@ -1,4 +1,4 @@
-import { PrettierConfigModel } from './PrettierConfigModel';
+import { PrettierConfigModel } from './prettier-config.model';
 
 export const prettierConfig = {
   singleQuote: false,
