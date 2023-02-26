@@ -1,6 +1,6 @@
 {
   "name": "@weichwarenprojekt/configuration",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Configuration provides you with all important configuration files used within Weichwarenprojekt.",
   "keywords": [
     "configuration",
