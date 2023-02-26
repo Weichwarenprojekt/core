@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1](https://github.com/Weichwarenprojekt/core/compare/@weichwarenprojekt/configuration-0.1.0...@weichwarenprojekt/configuration-0.1.1) (2023-02-26)
+
 ## 0.1.0 (2023-02-26)
 
 
