@@ -14,6 +14,11 @@
     "email": "info@weichwarenprojekt.de",
     "url": "https://weichwarenprojekt.de"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weichwarenprojekt/core.git"
+  },
+  "homepage": "https://github.com/Weichwarenprojekt/core#readme",
   "contributors": [
     {
       "name": "Stefan Rink",
@@ -23,6 +28,11 @@
     {
       "name": "Samuel Hübner",
       "email": "samuel.huebner@weichwarenprojekt.de",
+      "url": "https://weichwarenprojekt.de"
+    },
+    {
+      "name": "Tim Niederer",
+      "email": "tim.niederer@weichwarenprojekt.de",
       "url": "https://weichwarenprojekt.de"
     }
   ]
