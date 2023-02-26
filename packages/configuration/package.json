@@ -1,23 +1,5 @@
 {
   "name": "@weichwarenprojekt/configuration",
   "version": "0.1.0",
-  "type": "commonjs",
-  "license": "MIT",
-  "author": {
-    "name": "Weichwarenprojekt",
-    "email": "info@weichwarenprojekt.de",
-    "url": "https://weichwarenprojekt.de"
-  },
-  "contributors": [
-    {
-      "name": "Stefan Rink",
-      "email": "stefan.rink@weichwarenprojekt.de",
-      "url": "https://weichwarenprojekt.de"
-    },
-    {
-      "name": "Samuel Hübner",
-      "email": "samuel.huebner@weichwarenprojekt.de",
-      "url": "https://weichwarenprojekt.de"
-    }
-  ]
+  "type": "commonjs"
 }
