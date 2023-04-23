@@ -5,6 +5,11 @@ export default {
   root: true,
   parser: '@typescript-eslint/parser',
   ignorePatterns: ['.eslintrc.*', '.prettierrc.*'],
+  plugins: ['prettier', '@typescript-eslint/eslint-plugin'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
   rules: {
     'require-jsdoc': [
       'error',
