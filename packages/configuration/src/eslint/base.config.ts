@@ -4,6 +4,7 @@
 export default {
   root: true,
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['.eslintrc.*', '.prettierrc.*'],
   rules: {
     'require-jsdoc': [
       'error',

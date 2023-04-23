@@ -5,7 +5,7 @@ import baseConfig from './base.config';
  */
 export default {
   ...baseConfig,
-  ignorePatterns: ['projects/**/*'],
+  ignorePatterns: ['projects/**/*', ...baseConfig.ignorePatterns],
   overrides: [
     {
       files: ['*.ts'],
