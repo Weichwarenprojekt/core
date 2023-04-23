@@ -39,4 +39,7 @@ export default {
       rules: {},
     },
   ],
+  rules: {
+    ...baseConfig.rules,
+  },
 };

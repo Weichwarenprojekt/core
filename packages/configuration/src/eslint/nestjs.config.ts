@@ -5,6 +5,10 @@ import baseConfig from './base.config';
  */
 export default {
   ...baseConfig,
+  parserOptions: {
+    project: 'tsconfig.json',
+    sourceType: 'module',
+  },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -16,6 +20,7 @@ export default {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
+    ...baseConfig.rules,
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

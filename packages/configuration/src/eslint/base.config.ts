@@ -3,9 +3,19 @@
  */
 export default {
   root: true,
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
   parser: '@typescript-eslint/parser',
+  rules: {
+    'require-jsdoc': [
+      'error',
+      {
+        require: {
+          FunctionDeclaration: true,
+          MethodDefinition: true,
+          ClassDeclaration: true,
+          ArrowFunctionExpression: true,
+          FunctionExpression: true,
+        },
+      },
+    ],
+  },
 };
