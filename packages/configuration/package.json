@@ -35,5 +35,8 @@
       "email": "tim.niederer@weichwarenprojekt.de",
       "url": "https://weichwarenprojekt.de"
     }
-  ]
+  ],
+  "peerDependencies": {
+    "tslib": "^2.3.0"
+  }
 }
