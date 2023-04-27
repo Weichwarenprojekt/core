@@ -23,5 +23,6 @@ export default {
         },
       },
     ],
+    'no-console': 'error',
   },
 };
