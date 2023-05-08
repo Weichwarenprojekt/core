@@ -1,9 +1,7 @@
-import { ESLintConfig } from "./eslint-config.model";
-
 /**
  * Base eslint config
  */
-export default {
+module.exports = {
     root: true,
     parser: "@typescript-eslint/parser",
     ignorePatterns: [".eslintrc.*", ".prettierrc.*"],
@@ -12,4 +10,4 @@ export default {
     rules: {
         "no-console": "warn",
     },
-} as ESLintConfig;
+};

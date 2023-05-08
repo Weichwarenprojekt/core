@@ -1,9 +1,11 @@
-const { baseConfig } = require("@weichwarenprojekt/configuration").ESLintConfiguration;
+const baseConfig = require("./packages/configuration/src/eslint/base.config");
+
+console.log(baseConfig);
 
 module.exports = {
     ...baseConfig,
     ignorePatterns: ["**/*"],
-    plugins: ["@nrwl/nx", ...baseConfig.plugins ?? []],
+    plugins: ["@nrwl/nx", ...(baseConfig.plugins ?? [])],
     overrides: [
         {
             files: ["*.ts", "*.tsx", "*.js", "*.jsx"],

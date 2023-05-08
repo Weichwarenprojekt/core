@@ -1,10 +1,8 @@
-import baseConfig from "./base.config";
-import { ESLintConfig } from "./eslint-config.model";
-
+const baseConfig = require("./base.config");
 /**
  * eslint config for angular
  */
-export default {
+module.exports = {
     ...baseConfig,
     ignorePatterns: ["projects/**/*", ...(baseConfig.ignorePatterns ?? [])],
     overrides: [
@@ -43,4 +41,4 @@ export default {
     rules: {
         ...baseConfig.rules,
     },
-} as ESLintConfig;
+};

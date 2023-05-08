@@ -29,7 +29,7 @@ Create a `.eslintrc.js` file in the root of your projects directory and there ex
 ### Angular ESLint example
 For angular you need to additionally install angular eslint related packages:
 ```bash
-npm install --save-dev @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template @angular-eslint/schematics @angular-eslint/template-parser 
+npm install --save-dev @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/schematics @angular-eslint/template-parser 
 ```
 
 After that paste the following content in the `.eslint.js`:

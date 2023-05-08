@@ -1,10 +1,9 @@
-import baseConfig from "./base.config";
-import { ESLintConfig } from "./eslint-config.model";
+const baseConfig = require("./base.config");
 
 /**
  * eslint config for nestjs
  */
-export default {
+module.exports = {
     ...baseConfig,
     parserOptions: {
         project: "tsconfig.json",
@@ -22,4 +21,4 @@ export default {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-namespace": "off",
     },
-} as ESLintConfig;
+};

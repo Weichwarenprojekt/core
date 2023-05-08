@@ -2,7 +2,7 @@ export interface ESLintRuleOptions {
     [ruleName: string]: "off" | "warn" | "error" | ["off" | "warn" | "error", ...unknown[]];
 }
 
-export interface ESLintParserOptions {
+declare class ESLintParserOptions {
     ecmaVersion?: 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021;
     sourceType?: "script" | "module";
     ecmaFeatures?: {
